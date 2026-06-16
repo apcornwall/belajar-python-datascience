@@ -1,0 +1,16 @@
+# File: 01_error_handling_fintech.py
+# Deskripsi: Menghitung total investasi dari data mentah yang kotor
+
+investasi_bulan_ini = [1500000, "2000000", "ZONK"]
+total_investasi = 0
+
+for data in investasi_bulan_ini:
+    try:
+        angka_bersih = int(data)
+        total_investasi += angka_bersih
+        print(f"Berhasil input: Rp{angka_bersih}")
+    except ValueError:
+        print(f"Data '{data}' ngaco! Otomatis skip!")
+        continue
+
+print(f"\nTotal Investasi Masuk: Rp{total_investasi}")
