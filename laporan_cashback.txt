@@ -1,0 +1,4 @@
+25000
+50000
+100000
+Total poin yang valid: 100000
