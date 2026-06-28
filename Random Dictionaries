@@ -1,0 +1,20 @@
+data_server = ["Toko_A:150", "Toko_B:ERROR_SERVER",
+               "Toko_C:450", "Toko_D:-20", "Toko_E:200"]
+
+total_performa = 0
+
+with open("log_performa_seller.txt", "w") as file_log:
+    for data in data_server:
+        nama_toko, poin_teks = data.split(":")
+        try:
+            poin_teks_valid = int(poin_teks)
+            if poin_teks_valid > 0:
+                toko_valid = {"nama": nama_toko, "poin": poin_teks_valid}
+                total_performa += toko_valid["poin"]
+                file_log.write(
+                    toko_valid["nama"] + "lolos dengan poin" + str(toko_valid["poin"]) + "\n")
+        except ValueError:
+            print(f"Sistem mendeteksi terdapat kesalahan di {data}")
+            continue
+
+print(f"Proses selesai! Total performa semua toko adalah {total_performa}")
